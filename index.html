@@ -209,7 +209,17 @@ footer{border-top:1px solid #282828;padding:25px 0 35px;text-align:center;color:
     const lines=cart.map(x=>`• ${x.name} — ${x.ml} ml × ${x.qty}: RD$${(x.price*x.qty).toLocaleString("es-DO")}`);
     const message=["¡Hola Aromas Art! Quiero realizar este pedido:","",...lines,"","TOTAL: RD$"+total.toLocaleString("es-DO"),"", "Nombre: "+(name||"Pendiente"),"Teléfono: "+(phone||"Pendiente"),...(email?["Correo: "+email]:[]),"","Por favor, confirmen disponibilidad y entrega."].join("\n");
     window.open("https://wa.me/"+waNumber+"?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");
-  });
+function imageCandidates(p) {
+  const id = p.prefix;
+  const archivo = archivosImagen[id];
+
+  if (!archivo) return [];
+
+  return [
+    "./blottles/" + archivo,
+    "/aroma-tienda/blottles/" + archivo
+  ];
+}  });
   showProfile();render();renderCart();
 })();
 </script>
